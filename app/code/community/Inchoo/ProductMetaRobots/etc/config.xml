@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Inchoo_ProductMetaRobots>
+            <version>0.0.1</version>
+        </Inchoo_ProductMetaRobots>
+    </modules>
+    <global>
+        <blocks>
+            <page>
+                <rewrite>
+                    <html_head>Inchoo_ProductMetaRobots_Block_Page_Html_Head</html_head>
+                </rewrite>
+            </page>
+        </blocks>
+        <helpers>
+            <inchoo_productmetarobots>
+                <class>Inchoo_ProductMetaRobots_Helper</class>
+            </inchoo_productmetarobots>
+        </helpers>
+        <resources>
+            <inchoo_productmetarobots_setup>
+                <setup>
+                    <module>Inchoo_ProductMetaRobots</module>
+                    <class>Inchoo_ProductMetaRobots_Model_Resource_Setup</class>
+                </setup>
+            </inchoo_productmetarobots_setup>
+        </resources>
+    </global>
+</config>
