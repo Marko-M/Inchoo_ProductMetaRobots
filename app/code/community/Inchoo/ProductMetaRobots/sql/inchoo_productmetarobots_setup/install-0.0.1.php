@@ -34,7 +34,7 @@
 $installer = $this;
 
 // Install our custom attributes
-$installer->installCustomAttributes();
+$installer->installCustomProductAttributes();
 
 // Remove our custom attributes
-//$installer->removeCustomAttributes();
+//$installer->removeCustomProductAttributes();

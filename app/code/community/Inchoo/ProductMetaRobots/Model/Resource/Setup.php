@@ -38,11 +38,13 @@ class Inchoo_ProductMetaRobots_Model_Resource_Setup extends Mage_Eav_Model_Entit
      *
      * @return Mage_Eav_Model_Entity_Setup
      */
-    public function installCustomAttributes()
+    public function installCustomProductAttributes()
     {
-        $entities = $this->_getCustomEntities();
+        $attributes = $this->_getCustomProductAttributes();
 
-        $this->installEntities($entities);
+        foreach ($attributes as $code => $attr) {
+            $this->addAttribute('catalog_product', $code, $attr);
+        }
 
         return $this;
     }
@@ -52,14 +54,12 @@ class Inchoo_ProductMetaRobots_Model_Resource_Setup extends Mage_Eav_Model_Entit
      *
      * @return Mage_Eav_Model_Entity_Setup
      */
-    public function removeCustomAttributes()
+    public function removeCustomProductAttributes()
     {
-        $entities = $this->_getCustomEntities();
+        $attributes = $this->_getCustomProductAttributes();
 
-        foreach ($entities as $entityName=>$entity) {
-            foreach ($entity['attributes'] as $attrCode => $attr) {
-                $this->removeAttribute($entityName, $attrCode);
-            }
+        foreach ($attributes as $code => $attr) {
+            $this->removeAttribute('catalog_product', $code);
         }
 
         return $this;
@@ -71,46 +71,37 @@ class Inchoo_ProductMetaRobots_Model_Resource_Setup extends Mage_Eav_Model_Entit
      *
      * @return array Custom entities
      */
-    protected function _getCustomEntities()
+    protected function _getCustomProductAttributes()
     {
         return array(
-            'catalog_product' => array(
-                'entity_model'      => 'catalog/product',
-                'attribute_model'   => 'catalog/resource_eav_attribute',
-                'table'             => 'catalog/product',
-                'additional_attribute_table' => 'catalog/eav_attribute',
-                'entity_attribute_collection' => 'catalog/product_attribute_collection',
-                'attributes'        => array(
-                    'inchoo_meta_robots' => array(
-                        'group'             => 'Meta Information',
-                        'label'             => 'Meta Robots',
-                        'type'              => 'varchar',
-                        'input'             => 'select',
-                        'default'           => '',
-                        'class'             => '',
-                        'backend'           => '',
-                        'frontend'          => '',
-                        'global'            => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-                        'visible'           => true,
-                        'required'          => false,
-                        'user_defined'      => false,
-                        'searchable'        => false,
-                        'filterable'        => false,
-                        'comparable'        => false,
-                        'visible_on_front'  => false,
-                        'visible_in_advanced_search' => false,
-                        'unique'            => false,
-                        'option' => array (
-                            'value' => array(
-                                'INDEX,FOLLOW' => array(0=>'INDEX,FOLLOW'),
-                                'NOINDEX,FOLLOW' => array(0=>'NOINDEX,FOLLOW'),
-                                'NOINDEX,NOFOLLOW' => array(0=>'NOINDEX,NOFOLLOW'),
-                                'INDEX,NOFOLLOW' => array(0=>'INDEX,NOFOLLOW')
-                            )
-                        )
+            'inchoo_meta_robots' => array(
+                'group'             => 'Meta Information',
+                'label'             => 'Meta Robots',
+                'type'              => 'varchar',
+                'input'             => 'select',
+                'default'           => '',
+                'class'             => '',
+                'backend'           => '',
+                'frontend'          => '',
+                'global'            => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'visible'           => true,
+                'required'          => false,
+                'user_defined'      => false,
+                'searchable'        => false,
+                'filterable'        => false,
+                'comparable'        => false,
+                'visible_on_front'  => false,
+                'visible_in_advanced_search' => false,
+                'unique'            => false,
+                'option' => array (
+                    'value' => array(
+                        'INDEX,FOLLOW' => array(0=>'INDEX,FOLLOW'),
+                        'NOINDEX,FOLLOW' => array(0=>'NOINDEX,FOLLOW'),
+                        'NOINDEX,NOFOLLOW' => array(0=>'NOINDEX,NOFOLLOW'),
+                        'INDEX,NOFOLLOW' => array(0=>'INDEX,NOFOLLOW')
                     )
-               )
-           )
+                )
+            )
         );
     }
 }
