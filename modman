@@ -1,0 +1,9 @@
+# Inchoo_ProductMetaRobots
+app/code/community/Inchoo/ProductMetaRobots/                app/code/community/Inchoo/ProductMetaRobots/
+app/etc/modules/*                                           app/etc/modules/
+#app/design/frontend/base/default/layout/inchoo/*           app/design/frontend/base/default/layout/inchoo/
+#app/design/frontend/base/default/template/inchoo/*         app/design/frontend/base/default/template/inchoo/
+#app/design/adminhtml/default/default/layout/inchoo/*       app/design/adminhtml/default/default/layout/inchoo/
+#app/design/adminhtml/default/default/template/inchoo/*     app/design/adminhtml/default/default/template/inchoo/
+#js/inchoo/productmetarobots/*                              js/inchoo/productmetarobots/
+#skin/frontend/base/default/inchoo/*                        skin/frontend/base/default/inchoo/
