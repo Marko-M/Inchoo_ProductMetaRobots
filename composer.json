@@ -1,0 +1,17 @@
+{
+    "name": "Marko-M/Inchoo_ProductMetaRobots",
+    "description": "Per product meta robots tag control in Magento",
+    "type": "magento-module",
+    "homepage": "https://github.com/Marko-M/Inchoo_ProductMetaRobots",
+    "keywords": ["meta", "robots", "noindex,nofollow"],
+    "authors": [
+        {
+            "name": "Marko Martinović",
+            "email": "marko@techytalk.info",
+            "role": "owner"
+        }
+    ],
+    "require": {
+      "magento-hackathon/magento-composer-installer": "*"
+    }
+}
